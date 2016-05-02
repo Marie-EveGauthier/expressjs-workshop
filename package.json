@@ -9,6 +9,7 @@
   "author": "Marie-Eve Gauthier <gauthier.marie.eve@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "nodemon": "^1.9.2"
   }
 }
