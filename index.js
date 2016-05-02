@@ -6,13 +6,20 @@ app.get('/', function (req, res) {
 });
 
 /*
-Create a web server that can listen to requests for /hello, 
+This is a web server that can listen to requests for /hello, 
 and respond with some HTML that says <h1>Hello World!</h1>
 */
 app.get('/hello', function (req, res) {
   res.send('<h1>Hello World!</h1>');
 });
 
+
+/* This is a web server that can listen to requests for /hello?name=firstName, 
+and respond with some HTML that says <h1>Hello _name_!</h1>. 
+*/
+app.get('/hello/:name', function(req, res) {
+  res.send('<h1>Hello ' + req.params.name + '!<h1>');
+});
 
 /* YOU DON'T HAVE TO CHANGE ANYTHING BELOW THIS LINE :) */
 
