@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "DecodeMTL <hello@decodemtl.com>",
+  "author": "Marie-Eve Gauthier <gauthier.marie.eve@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.4"
   }
 }

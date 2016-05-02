@@ -5,8 +5,13 @@ app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
-
-
+/*
+Create a web server that can listen to requests for /hello, 
+and respond with some HTML that says <h1>Hello World!</h1>
+*/
+app.get('/hello', function (req, res) {
+  res.send('<h1>Hello World!</h1>');
+});
 
 
 /* YOU DON'T HAVE TO CHANGE ANYTHING BELOW THIS LINE :) */
