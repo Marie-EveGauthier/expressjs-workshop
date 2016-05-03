@@ -86,6 +86,7 @@ app.get('/calculator/:operation/:num1/:num2', function(req, res) {
 /*
 This is a web server that can retrieve data from my database
 */
+//This connects with mysql database
 var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: 'localhost',
@@ -94,7 +95,7 @@ var connection = mysql.createConnection({
   database: 'reddit'
 });
 
-
+//This is the function to retrieve the post from my reddit database
 function getTheFiveLastPosts(callback) {
   connection.query(`SELECT p.id AS post_id, p.title AS post_title, p.url AS post_url, p.userId AS post_userId, p.createdAt AS post_createdAt, p.updatedAt AS post_updated, p.subredditId AS post_subredditId,
               u.id AS users_id, u.username AS users_username
@@ -125,6 +126,9 @@ function getTheFiveLastPosts(callback) {
   );
 }
 
+/*This is a web server that can listen to requests for /posts, 
+and respond with some HTML that diplays the 5 lastest post using a list
+*/
 app.get('/posts', function(request, response) {
   getTheFiveLastPosts(function(err, posts) {
     if (err) {
@@ -149,6 +153,27 @@ app.get('/posts', function(request, response) {
     }
   });
 });
+
+
+/*
+Creating a “new content” form
+*/
+
+var path = require('path');
+
+// viewed at http://localhost:8080
+app.get('/createContent', function(req, res) {
+  res.sendFile(path.join(__dirname + '/form.html'), function(err){
+    if (err) {
+      console.log(err);
+      res.status(err.status).end();
+    }
+    else {
+      console.log('Sent:', (path.join(__dirname + '/form.html')));
+    }
+  });
+});
+
 
 /* YOU DON'T HAVE TO CHANGE ANYTHING BELOW THIS LINE :) */
 
